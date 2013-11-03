@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'sinatra'
+require 'open-uri'
 
 $device = "/dev/ttyGPIO"
 $pin_one = "B4"
@@ -28,7 +28,11 @@ def get_open_state
   end
 end
 
-get '/' do
-  get_open_state.to_s
-end
+while true
+  begin
+    open("http://spaceapi.hasi.it/set_open/" + get_open_state.to_s, :proxy => nil)
 
+    sleep 10
+  rescue
+  end
+end
