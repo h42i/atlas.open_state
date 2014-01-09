@@ -6,13 +6,13 @@ $server = TCPServer.open(7876)
 $last_state = get_open_state()
 $new_state = get_open_state()
 
-$sleep_time = 1.0
+$wait_time = 1
 
 check_change = Thread.new do
     loop do
         $last_state = $new_state
         $new_state = get_open_state()
-
+        
         sleep($wait_time)
     end
 end
