@@ -1,5 +1,5 @@
 require 'open-uri'
-require 'state'
+require './state'
 
 while true
   begin
