@@ -20,7 +20,7 @@ loop do
 
         sleep($wait_time) while $state == last_state
 
-        client.puts(last_state ? 1 : 0)
+        client.puts($state == true ? 1 : 0)
         client.close()
     end
 end
