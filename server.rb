@@ -3,27 +3,24 @@ require './state'
 
 $server = TCPServer.open(7876)
 
-$last_state = get_open_state()
-$new_state = get_open_state()
-
+$state = false
 $wait_time = 1
 
 check_change = Thread.new do
     loop do
-        $last_state = $new_state
-        $new_state = get_open_state()
-        
+        $state = get_open_state() 
+
         sleep($wait_time)
     end
 end
 
 loop do
     Thread.start($server.accept) do |client|
-        while $new_state == $last_state
-            sleep($wait_time)
-        end
+        last_state = $state
 
-        client.puts($new_state ? 0 : 1)
+        sleep($wait_time) while $state == last_state
+
+        client.puts(last_state ? 1 : 0)
         client.close()
     end
 end
