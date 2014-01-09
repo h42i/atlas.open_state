@@ -21,7 +21,6 @@ loop do
     Thread.start($server.accept) do |client|
         while $new_state == $last_state
             sleep($wait_time)
-            break
         end
 
         client.puts($new_state ? 0 : 1)
