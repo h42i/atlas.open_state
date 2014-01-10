@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-ruby server.rb
+ruby /home/hasi/atlas.open_state/server.rb
