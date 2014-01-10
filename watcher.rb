@@ -1,5 +1,5 @@
 require 'open-uri'
-require './state'
+require '/home/hasi/atlas.open_state/state'
 
 while true
   begin

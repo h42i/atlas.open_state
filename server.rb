@@ -1,5 +1,5 @@
 require 'socket'
-require './state'
+require '/home/hasi/atlas.open_state/state'
 
 $server = TCPServer.open(7876)
 
