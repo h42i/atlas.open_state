@@ -15,7 +15,7 @@ def test_state_change()
 
     socket.close()
 
-    message[0] == 1 ? true : false
+    message[0].to_i == 1 ? true : false
 end
 
 while true
