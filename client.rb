@@ -27,5 +27,6 @@ while true
         # do stuff here, the open status changed
     rescue Timeout::Error
         # nothing changed.
+    rescue
     end
 end
